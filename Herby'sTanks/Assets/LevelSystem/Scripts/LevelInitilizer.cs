@@ -5,7 +5,6 @@ using UnityEngine;
 public class LevelInitilizer : MonoBehaviour
 {
     public GameObject[] levelList;
-    private GameObject[] levelContents;
     public bool levelFinished;
     public int levelIndex = 0;
 
@@ -13,8 +12,7 @@ public class LevelInitilizer : MonoBehaviour
     {
         if (levelFinished)
         {
-            Debug.Log("Level has finished");
-            
+            Debug.Log("Level has finished");            
             Instantiate(levelList[levelIndex]);
             Debug.Log(levelIndex);
             levelIndex++;

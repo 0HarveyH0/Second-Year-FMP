@@ -22,7 +22,7 @@ public class TankScript : MonoBehaviour
     //Shooting
     [Header("Shooting")]
     public Transform crosshair;
-    public Transform tankBarrel;
+    public Transform tankHead;
     public Vector3 screenPos;
     public Vector3 crosshairPos;
     public Transform bulletHole;
@@ -34,8 +34,6 @@ public class TankScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         tankControls = new TankControls();
-
-        tankControls.Tank.Shoot.performed += Shoot;
 
 
     }
@@ -55,13 +53,13 @@ public class TankScript : MonoBehaviour
     {
     }
 
-    private void Move(Vector2 context)
+    public void GetMoveInput(InputAction.CallbackContext ctx)
     {
-        float horizontal = context.x;
-        float vertical = context.y;
-        Vector3 Movement = this.transform.right * horizontal + this.transform.forward * vertical;
-        rb.velocity = Movement * moveSpeed;
+        moveValue = ctx.ReadValue<Vector2>();
+    }
 
+    private void Move(Vector2 moveInput)
+    {
 
     }
 
@@ -145,23 +143,27 @@ public class TankScript : MonoBehaviour
 
     private void RotateBarrel()
     {
+        
         screenPos = Mouse.current.position.ReadValue();
         screenPos.z = Camera.main.nearClipPlane + 9;
 
         crosshairPos = Camera.main.ScreenToWorldPoint(screenPos);
 
+        crosshairPos.y = 0.45f;
         crosshair.position = crosshairPos;
-
-        Vector3 relativePos = crosshairPos - tankBarrel.position;
-
+        
+        
+        Vector3 relativePos = crosshairPos - tankHead.position;
+        
         Quaternion rotation = Quaternion.LookRotation(relativePos, new Vector3(0, 1, 0));
-        tankBarrel.rotation = rotation * Quaternion.Euler(0, -90, 0);
-
-        //tankBarrel.LookAt(crosshairPos);
+        rotation.z = 0;
+        tankHead.rotation = rotation * Quaternion.Euler(0, -90, 0);
+        
+        //tankHead.LookAt(crosshairPos);
 
     }
 
-    private void Shoot(InputAction.CallbackContext context)
+    public void Shoot(InputAction.CallbackContext context)
     {
         if (bulletCount < 5)
         {
@@ -177,9 +179,10 @@ public class TankScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        Vector2 moveValue = tankControls.Tank.Move.ReadValue<Vector2>();
-        Move(moveValue);
+        float horizontal = moveValue.x;
+        float vertical = moveValue.y;
+        Vector3 Movement = this.transform.right * horizontal + this.transform.forward * vertical;
+        rb.velocity = Movement * moveSpeed;
         RotateBody(moveValue);
         RotateBarrel();
 
