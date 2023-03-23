@@ -9,5 +9,6 @@ public class SpawnManager : MonoBehaviour
     {
         Debug.Log("PlayerInput ID: " + playerInput.playerIndex);
         playerInput.gameObject.GetComponent<PlayerDetails>().playerID = playerInput.playerIndex + 1;
+        playerInput.gameObject.GetComponent<PlayerDetails>().playerDevice = playerInput.currentControlScheme;
     }
 }

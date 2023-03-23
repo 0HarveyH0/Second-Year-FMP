@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerDetails))]
 public class TankScript : MonoBehaviour
 {
+    [Header("Player Details")]
+    private PlayerDetails playerDetails;
+    private string controlScheme;
+    private int playerNumber;
+
     //Move
     [Header("Movement")]
     private TankControls tankControls;
@@ -28,14 +33,24 @@ public class TankScript : MonoBehaviour
     public Transform bulletHole;
     public GameObject bullet;
     public int bulletCount;
+    public bool hasShot;
+
+    [Header("Controller")]
+    public Vector2 lookInput;
+    public float rotateSmoothing = 1000f;
+
 
     // Start is called before the first frame update
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        playerDetails = GetComponent<PlayerDetails>();
+        controlScheme = playerDetails.playerDevice;
         tankControls = new TankControls();
-
-
+        if(controlScheme == "Keyboard & Mouse")
+        {
+            crosshair.gameObject.SetActive(true);
+        }
     }
 
     private void OnEnable()
@@ -51,116 +66,162 @@ public class TankScript : MonoBehaviour
 
     private void Start()
     {
+        tankControls.Tank.Shoot.performed += HasShot;
     }
+
+    public void GetLookInput(InputAction.CallbackContext ctx)
+    {
+        lookInput = ctx.ReadValue<Vector2>();  
+    }
+
 
     public void GetMoveInput(InputAction.CallbackContext ctx)
     {
         moveValue = ctx.ReadValue<Vector2>();
     }
 
-    private void Move(Vector2 moveInput)
+    public void HasShot(InputAction.CallbackContext ctx)
     {
-
+        if(ctx.ReadValue<float>() > 0.5)
+        {
+            hasShot= true;
+        }
+        else { hasShot = false; }
     }
 
-    private void RotateBody(Vector2 context)
+
+    private void RotateBody(Vector2 inputVal)
     {
-        Vector2 inputVal = context;
-        switch (inputVal.x)
+        switch (controlScheme)
         {
-            case 1:
-                targetRot = Quaternion.Euler(0f, 360f, 0f);
+            case "Keyboard & Mouse":
+                switch (inputVal.x)
+                {
+                    case 1:
+                        targetRot = Quaternion.Euler(0f, 360f, 0f);
+                        break;
+                    case -1:
+                        targetRot = Quaternion.Euler(0f, 180f, 0f);
+                        break;
+                }
+                switch (inputVal.y)
+                {
+                    case 1:
+                        targetRot = Quaternion.Euler(0f, 270f, 0f);
+                        break;
+                    case -1:
+                        targetRot = Quaternion.Euler(0f, 90f, 0f);
+                        break;
+                }
+                if (inputVal.x == 1 && inputVal.y == 1)
+                {
+                    // is moving top right
+
+                    targetRot = Quaternion.Euler(0f, 315f, 0f);
+
+                }
+                else if (inputVal.x == 1 && inputVal.y == -1)
+                {
+                    //is moving bottom right
+                    targetRot = Quaternion.Euler(0f, 45f, 0f);
+
+                }
+                else if (inputVal.x == -1 && inputVal.y == -1)
+                {
+                    //is moving bottom left
+                    targetRot = Quaternion.Euler(0f, 135f, 0f);
+
+                }
+                else if (inputVal.x == -1 && inputVal.y == 1 )
+                {
+                    // is moving top left
+                    targetRot = Quaternion.Euler(0, 225f, 0);
+
+                }
+
+                tankBody.rotation = Quaternion.RotateTowards(tankBody.rotation, targetRot, rotateSmoothing * Time.deltaTime);
+
                 break;
-            case -1:
-                targetRot = Quaternion.Euler(0f, 180f, 0f);
+            case "Controller":
+                switch (inputVal.x)
+                {
+                    case 1:
+                        targetRot = Quaternion.Euler(0f, 360f, 0f);
+                        break;
+                    case -1:
+                        targetRot = Quaternion.Euler(0f, 180f, 0f);
+                        break;
+                }
+                switch (inputVal.y)
+                {
+                    case 1:
+                        targetRot = Quaternion.Euler(0f, 270f, 0f);
+                        break;
+                    case -1:
+                        targetRot = Quaternion.Euler(0f, 90f, 0f);
+                        break;
+                }
+                if (inputVal.x < 1 && inputVal.x > 0.5 && inputVal.y > 0.5 && inputVal.y < 1)
+                {
+                    // is moving top right
+
+                    targetRot = Quaternion.Euler(0f, 315f, 0f);
+
+                }
+                else if (inputVal.x > 0 && inputVal.x != 1 && inputVal.y < 0 && inputVal.y != -1)
+                {
+                    //is moving bottom right
+                    targetRot = Quaternion.Euler(0f, 45f, 0f);
+
+                }
+                else if (inputVal.x < 0 && inputVal.x != -1 && inputVal.y < 0 && inputVal.y != -1)
+                {
+                    //is moving bottom left
+                    targetRot = Quaternion.Euler(0f, 135f, 0f);
+
+                }
+                else if (inputVal.x < 0 && inputVal.x != -1 && inputVal.y > 0 && inputVal.y != 1)
+                {
+                    // is moving top left
+                    targetRot = Quaternion.Euler(0, 225f, 0);
+
+                }
+
+                tankBody.rotation = Quaternion.RotateTowards(tankBody.rotation, targetRot, rotateSmoothing * Time.deltaTime);
                 break;
         }
-        switch (inputVal.y)
-        {
-            case 1:
-                targetRot = Quaternion.Euler(0f, 270f, 0f);
-                break;
-            case -1:
-                targetRot = Quaternion.Euler(0f, 90f, 0f);
-                break;
-        }
-        /*
-        if (inputVal.x == 1)
-        {
-            //is Moving Right
-            targetRot = Quaternion.Euler(0f, 360f, 0f);
-        }
-        else if (inputVal.x == -1)
-        {
-            //is Moving Left
-            targetRot = Quaternion.Euler(0f, 180f, 0f);
-
-        }
-
-        else if (inputVal.y == 1)
-        {
-            //is Moving Up
-            targetRot = Quaternion.Euler(0f, 270f, 0f);
-
-
-        }
-        else if (inputVal.y == -1)
-        {
-            //is Moving Down
-            targetRot = Quaternion.Euler(0f, 90f, 0f);
-
-        }
-        */
-        if (inputVal.x > 0 && inputVal.x != 1 && inputVal.y > 0 && inputVal.y != 1)
-        {
-            // is moving top right
-
-            targetRot = Quaternion.Euler(0f, 315f, 0f);
-
-        }
-        else if (inputVal.x > 0 && inputVal.x != 1 && inputVal.y < 0 && inputVal.y != -1)
-        {
-            //is moving bottom right
-            targetRot = Quaternion.Euler(0f, 45f, 0f);
-
-        }
-        else if (inputVal.x < 0 && inputVal.x != -1 && inputVal.y < 0 && inputVal.y != -1)
-        {
-            //is moving bottom left
-            targetRot = Quaternion.Euler(0f, 135f, 0f);
-
-        }
-        else if (inputVal.x < 0 && inputVal.x != -1 && inputVal.y > 0 && inputVal.y != 1)
-        {
-            // is moving top left
-            targetRot = Quaternion.Euler(0, 225f, 0);
-
-        }
-
-        tankBody.rotation = targetRot;
 
     }
 
     private void RotateBarrel()
     {
-        
-        screenPos = Mouse.current.position.ReadValue();
-        screenPos.z = Camera.main.nearClipPlane + 9;
+        switch (controlScheme)
+        {
+            case "Keyboard & Mouse":
+                screenPos = Mouse.current.position.ReadValue();
+                screenPos.z = Camera.main.nearClipPlane + 9;
 
-        crosshairPos = Camera.main.ScreenToWorldPoint(screenPos);
+                crosshairPos = Camera.main.ScreenToWorldPoint(screenPos);
 
-        crosshairPos.y = 0.45f;
-        crosshair.position = crosshairPos;
-        
-        
-        Vector3 relativePos = crosshairPos - tankHead.position;
-        
-        Quaternion rotation = Quaternion.LookRotation(relativePos, new Vector3(0, 1, 0));
-        rotation.z = 0;
-        tankHead.rotation = rotation * Quaternion.Euler(0, -90, 0);
-        
-        //tankHead.LookAt(crosshairPos);
+                crosshairPos.y = 0.45f;
+                crosshair.position = crosshairPos;
 
+
+                Vector3 relativePos = crosshairPos - tankHead.position;
+
+                Quaternion rotation = Quaternion.LookRotation(relativePos, new Vector3(0, 1, 0));
+                rotation.z = 0;
+                tankHead.rotation = rotation * Quaternion.Euler(0, -90, 0);
+                break;
+            case "Controller":
+                Vector3 rotateDir = Vector3.right * lookInput.x + Vector3.forward * lookInput.y;
+                if(rotateDir.sqrMagnitude> 0)
+                {
+                    Quaternion newRot = Quaternion.LookRotation(rotateDir, Vector3.up);
+                    tankHead.rotation = newRot * Quaternion.Euler(0,-90,0);
+                }
+                break;
+        }    
     }
 
     public void Shoot(InputAction.CallbackContext context)
@@ -168,10 +229,10 @@ public class TankScript : MonoBehaviour
         if (bulletCount < 5)
         {
             var bulletObj = Instantiate(bullet, bulletHole.position, bulletHole.rotation);
-            //bulletCount++;
+            bulletCount++;
 
-            //bulletObj.AddComponent<Rigidbody>().AddForce(bulletObj.transform.forward * 500);
-            //bulletObj.GetComponent<Rigidbody>().useGravity = false;
+            bulletObj.AddComponent<Rigidbody>().AddForce(bulletObj.transform.forward * 1500);
+            bulletObj.GetComponent<Rigidbody>().useGravity = false;
 
         }
     }
@@ -185,6 +246,10 @@ public class TankScript : MonoBehaviour
         rb.velocity = Movement * moveSpeed;
         RotateBody(moveValue);
         RotateBarrel();
+        if (hasShot)
+        {
+            Debug.Log("Has Shot");
+        }
 
     }
 

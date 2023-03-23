@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerDetails : MonoBehaviour
 {
     public int playerID;
+    public string playerDevice;
     // Start is called before the first frame update
     void Start()
     {
