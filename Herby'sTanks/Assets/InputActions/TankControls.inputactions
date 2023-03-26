@@ -16,12 +16,12 @@
                 },
                 {
                     "name": "Shoot",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "3afa8479-a9b6-4706-b1d9-97a85e7de1a8",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
+                    "interactions": "Press(pressPoint=1)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Look",

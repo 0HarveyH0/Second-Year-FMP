@@ -34,6 +34,11 @@ public class TankScript : MonoBehaviour
     public GameObject bullet;
     public int bulletCount;
     public bool hasShot;
+    public int BounceCount;
+    public int maxBullets;
+
+    [Header("Health")]
+    public bool isShot;
 
     [Header("Controller")]
     public Vector2 lookInput;
@@ -66,7 +71,7 @@ public class TankScript : MonoBehaviour
 
     private void Start()
     {
-        tankControls.Tank.Shoot.performed += HasShot;
+        tankControls.Tank.Shoot.started += HasShot;
     }
 
     public void GetLookInput(InputAction.CallbackContext ctx)
@@ -82,14 +87,17 @@ public class TankScript : MonoBehaviour
 
     public void HasShot(InputAction.CallbackContext ctx)
     {
-        if(ctx.ReadValue<float>() > 0.5)
+        if(ctx.ReadValue<float>() == 1)
         {
-            hasShot= true;
+            if (bulletCount < maxBullets)
+            {
+                var bulletObj = Instantiate(bullet, bulletHole.position, bulletHole.rotation);
+                bulletCount++;
+
+            }
         }
-        else { hasShot = false; }
+
     }
-
-
     private void RotateBody(Vector2 inputVal)
     {
         switch (controlScheme)
@@ -224,19 +232,6 @@ public class TankScript : MonoBehaviour
         }    
     }
 
-    public void Shoot(InputAction.CallbackContext context)
-    {
-        if (bulletCount < 5)
-        {
-            var bulletObj = Instantiate(bullet, bulletHole.position, bulletHole.rotation);
-            bulletCount++;
-
-            bulletObj.AddComponent<Rigidbody>().AddForce(bulletObj.transform.forward * 1500);
-            bulletObj.GetComponent<Rigidbody>().useGravity = false;
-
-        }
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -246,11 +241,33 @@ public class TankScript : MonoBehaviour
         rb.velocity = Movement * moveSpeed;
         RotateBody(moveValue);
         RotateBarrel();
-        if (hasShot)
+        if (isShot)
         {
-            Debug.Log("Has Shot");
+            Debug.Log("isDead");
         }
 
+        CastRay(bulletHole.position, bulletHole.forward);
+
+    }
+
+    void CastRay(Vector3 position, Vector3 direction)
+    {
+        for (int i = 0; i < BounceCount; i++)
+        {
+            Ray ray = new Ray(position, direction);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100, 1))
+            {
+                Debug.DrawLine(position, hit.point, Color.red);
+                position = hit.point;
+                direction = Vector3.Reflect(direction, hit.normal);
+            }
+            else
+            {
+                Debug.DrawRay(position, direction * 100, Color.blue);
+            }
+        }
     }
 
     private void Update()

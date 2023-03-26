@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7749029268045103978}
   - component: {fileID: 9106734585769288007}
   - component: {fileID: 4078556335929129174}
-  - component: {fileID: 9128953763380149768}
   m_Layer: 0
   m_Name: Cube.001
   m_TagString: Untagged
@@ -86,28 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &9128953763380149768
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3168251825046428375}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4493585093827132993, guid: f3ebb1206b5fb0844b7602cef7ee0793, type: 3}
 --- !u!1 &5990235800509704345
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +210,7 @@ GameObject:
   - component: {fileID: 5990235801957960231}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,8 +224,8 @@ Transform:
   m_GameObject: {fileID: 5990235801957960232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5990235800509704344}
   - {fileID: 6101021540219501868}
@@ -372,13 +349,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6101021540219501868}
   - component: {fileID: 6908801554195310484}
-  - component: {fileID: 6908801554195310485}
   - component: {fileID: 6908801554195310483}
   - component: {fileID: 6908801554195310482}
   - component: {fileID: 1673754574731600221}
+  - component: {fileID: 9091656289611823825}
   m_Layer: 0
   m_Name: Tank
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,27 +404,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &6908801554195310485
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6908801554195310486}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5.2583675, y: 2.6717, z: 3.1698925}
-  m_Center: {x: -0.006911655, y: 0.47275174, z: -0.035842456}
 --- !u!114 &6908801554195310483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,8 +426,11 @@ MonoBehaviour:
   crosshairPos: {x: 0, y: 0, z: 0}
   bulletHole: {fileID: 5990235800602400096}
   bullet: {fileID: 1185741101620450717, guid: 9b3c0b062c06bb844a1563b505a59b8a, type: 3}
-  bulletCount: 0
+  bulletCount: 5
   hasShot: 0
+  BounceCount: 2
+  maxBullets: 1000
+  isShot: 0
   lookInput: {x: 0, y: 0}
   rotateSmoothing: 1000
 --- !u!114 &6908801554195310482
@@ -567,3 +526,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   playerDevice: 
+--- !u!136 &9091656289611823825
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6908801554195310486}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.7168173
+  m_Height: 5.4218106
+  m_Direction: 0
+  m_Center: {x: -0.03220682, y: -0.054095186, z: 0}
