@@ -42,7 +42,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                     ""id"": ""3afa8479-a9b6-4706-b1d9-97a85e7de1a8"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(pressPoint=1)"",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -181,7 +181,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""29e3ec29-2882-402c-8382-2ae56c9d8caa"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Shoot"",

@@ -36,6 +36,7 @@ public class TankScript : MonoBehaviour
     public bool hasShot;
     public int BounceCount;
     public int maxBullets;
+    public bool canShoot;
 
     [Header("Health")]
     public bool isShot;
@@ -71,6 +72,7 @@ public class TankScript : MonoBehaviour
 
     private void Start()
     {
+        canShoot = true;
         tankControls.Tank.Shoot.started += HasShot;
     }
 
@@ -87,17 +89,29 @@ public class TankScript : MonoBehaviour
 
     public void HasShot(InputAction.CallbackContext ctx)
     {
-        if(ctx.ReadValue<float>() == 1)
+        if (ctx.started)
         {
-            if (bulletCount < maxBullets)
+            if (ctx.ReadValue<float>() >= 0.5)
             {
-                var bulletObj = Instantiate(bullet, bulletHole.position, bulletHole.rotation);
-                bulletCount++;
-
+                if (bulletCount < maxBullets && canShoot)
+                {
+                    StartCoroutine(FireRate());
+                }
             }
         }
-
     }
+
+
+    IEnumerator FireRate()
+    {
+        Debug.Log("hasShot");
+        var bulletObj = Instantiate(bullet, bulletHole.position, bulletHole.rotation);
+        bulletCount++;
+        canShoot = false;
+        yield return new WaitForSeconds(0.5f);
+        canShoot = true;
+    }
+
     private void RotateBody(Vector2 inputVal)
     {
         switch (controlScheme)

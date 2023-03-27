@@ -192,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5990235800602400097}
   m_LocalRotation: {x: -0, y: 0.7071064, z: -0, w: 0.7071072}
-  m_LocalPosition: {x: 3.721, y: -0.33, z: 0}
+  m_LocalPosition: {x: 4.982, y: -0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -426,10 +426,11 @@ MonoBehaviour:
   crosshairPos: {x: 0, y: 0, z: 0}
   bulletHole: {fileID: 5990235800602400096}
   bullet: {fileID: 1185741101620450717, guid: 9b3c0b062c06bb844a1563b505a59b8a, type: 3}
-  bulletCount: 5
+  bulletCount: 0
   hasShot: 0
   BounceCount: 2
   maxBullets: 1000
+  canShoot: 0
   isShot: 0
   lookInput: {x: 0, y: 0}
   rotateSmoothing: 1000

@@ -7,8 +7,6 @@ public class Bullet : MonoBehaviour
 {
     public ParticleSystem bulletParticleSystem;
     public Rigidbody rb;
-    public Ray ray;
-    public RaycastHit hit;
     public int BounceCount;
     int bounces;
     public int speed = 15;
@@ -44,7 +42,7 @@ public class Bullet : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Destroy(this.gameObject);
+           Destroy(this.gameObject);
 
         }
     }
