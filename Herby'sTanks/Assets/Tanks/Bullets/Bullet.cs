@@ -40,10 +40,15 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponent<TankScript>().isShot = true;
             Destroy(this.gameObject);
         }
-        if (collision.gameObject.CompareTag("Bullet"))
+        else if (collision.gameObject.CompareTag("Bullet"))
         {
            Destroy(this.gameObject);
 
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.gameObject.GetComponent<EnemyAI>().isShot = true;
+            Destroy(this.gameObject);
         }
     }
 

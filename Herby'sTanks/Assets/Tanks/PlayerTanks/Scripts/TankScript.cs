@@ -73,7 +73,6 @@ public class TankScript : MonoBehaviour
     private void Start()
     {
         canShoot = true;
-        tankControls.Tank.Shoot.started += HasShot;
     }
 
     public void GetLookInput(InputAction.CallbackContext ctx)
@@ -89,16 +88,10 @@ public class TankScript : MonoBehaviour
 
     public void HasShot(InputAction.CallbackContext ctx)
     {
-        if (ctx.started)
+        if (bulletCount < maxBullets && canShoot)
         {
-            if (ctx.ReadValue<float>() >= 0.5)
-            {
-                if (bulletCount < maxBullets && canShoot)
-                {
-                    StartCoroutine(FireRate());
-                }
-            }
-        }
+            StartCoroutine(FireRate());
+        }                 
     }
 
 

@@ -8,7 +8,12 @@ public class EnemyAI : MonoBehaviour
 {
     public int BounceCount;
     public NavMeshAgent player;
-    public Transform barrelHole;
+    public GameObject bullet;
+    public Transform bulletHole;
+    public int bulletCount;
+    public int maxBullets;
+    public bool canShoot;
+    public bool isShot;
     private enemyStates currentState = enemyStates.patrolling;
     // Start is called before the first frame update
     void Start()
@@ -18,22 +23,50 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (currentState)
+        if (!isShot)
         {
-            case enemyStates.patrolling:
-                Patrol();
-                break;
-            case enemyStates.shooting:
-                break;
+            switch (currentState)
+            {
+                case enemyStates.patrolling:
+                    Patrol();
+                    Debug.Log("Patrol");
+                    break;
+                case enemyStates.shooting:
+                    Shoot();
+                    Debug.Log("Shoot");
+                    break;
+            }
+        }
+        else
+        {
+            Debug.Log("isShot");
         }
     }
 
 
     void Patrol()
     {
-        CastRay(barrelHole.position, barrelHole.forward);
+        CastRay(bulletHole.position, bulletHole.forward);
     }
 
+    void Shoot()
+    {
+        if (bulletCount < maxBullets && canShoot)
+        {
+            StartCoroutine(FireRate());
+        }
+    }
+
+    IEnumerator FireRate()
+    {
+        Debug.Log("hasShot");
+        var bulletObj = Instantiate(bullet, bulletHole.position, bulletHole.rotation);
+        bulletCount++;
+        canShoot = false;
+        yield return new WaitForSeconds(1.5f);
+        canShoot = true;
+        currentState = enemyStates.patrolling;
+    }
 
     void CastRay(Vector3 position, Vector3 direction)
     {
@@ -47,6 +80,14 @@ public class EnemyAI : MonoBehaviour
                 Debug.DrawLine(position, hit.point, Color.red);
                 position = hit.point;
                 direction = Vector3.Reflect(direction, hit.normal);
+                if (hit.transform.gameObject.CompareTag("Player"))
+                {
+                    currentState = enemyStates.shooting;
+                }
+                else
+                {
+                    Debug.Log(hit.transform.gameObject.name);
+                }
             }
             else
             {

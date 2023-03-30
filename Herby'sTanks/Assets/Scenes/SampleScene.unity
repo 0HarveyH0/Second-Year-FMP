@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17584153, g: 0.22004557, b: 0.3023751, a: 1}
+  m_IndirectSpecularColor: {r: 0.17584127, g: 0.22004521, b: 0.30237448, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 9eb4a25640867314ab809b889ce26436, type: 2}
 --- !u!1 &25459368
 GameObject:
   m_ObjectHideFlags: 0
@@ -3007,14 +3007,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1893188899}
-  - component: {fileID: 1893188901}
   - component: {fileID: 1893188900}
   m_Layer: 0
   m_Name: NavMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1893188899
 Transform:
@@ -3050,39 +3049,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.016934704, y: 0.01800203, z: 0.115990534}
-  m_Center: {x: 0.0021547351, y: 0.00082060025, z: 0.006635513}
---- !u!114 &1893188901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893188898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a3b3fff46a3c35144b1a93a505767a24, type: 2}
-  m_BuildHeightMesh: 0
+  m_Size: {x: 0.016934704, y: 0.018002026, z: 0.054468617}
+  m_Center: {x: 0.0021547351, y: 0.00082059915, z: -0.024125364}
 --- !u!1 &1908894297
 GameObject:
   m_ObjectHideFlags: 0
@@ -3273,7 +3241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970553916}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.218, y: 0, z: 0}
+  m_LocalPosition: {x: 5.02, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3489,7 +3457,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!23 &937184521188917784
 MeshRenderer:
@@ -4163,7 +4131,7 @@ GameObject:
   - component: {fileID: 8943619424867992129}
   m_Layer: 0
   m_Name: BaseEnemyTank
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4285,7 +4253,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BounceCount: 2
   player: {fileID: 8943619424867992127}
-  barrelHole: {fileID: 1970553917}
+  bullet: {fileID: 1185741101620450717, guid: 9b3c0b062c06bb844a1563b505a59b8a, type: 3}
+  bulletHole: {fileID: 1970553917}
+  bulletCount: 0
+  maxBullets: 5
+  canShoot: 1
+  isShot: 0
 --- !u!65 &8943619424867992129
 BoxCollider:
   m_ObjectHideFlags: 0

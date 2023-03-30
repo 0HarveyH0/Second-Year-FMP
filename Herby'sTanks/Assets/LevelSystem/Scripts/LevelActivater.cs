@@ -19,14 +19,7 @@ public class LevelActivater : MonoBehaviour
             levelContents[i].SetActive(true);
         }
         var player = GameObject.Find("Player");
-        var playerDetails  = player.GetComponent<PlayerDetails>();
         var spawnpoint = GameObject.Find("PlayerManager");
-        if(playerDetails != null)
-        {
-            if(playerDetails.playerID == 1)
-            {
-                player.transform.position = spawnpoint.GetComponent<SpawnManager>().spawnPoint.transform.position;
-            }
-        }
+
     }
 }
