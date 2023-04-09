@@ -10,10 +10,10 @@ public class LevelActivater : MonoBehaviour
         for(int i = 0; i < transform.childCount; i++)
         {
             levelContents.Add(transform.GetChild(i).gameObject);
-            if (transform.GetChild(i).gameObject.name == "SpawnPoint")
+            if (transform.GetChild(i).gameObject.name == "P1SpawnPoint")
             {
                 var manager = GameObject.Find("PlayerManager");
-                manager.GetComponent<SpawnManager>().spawnPoint = transform.GetChild(i).gameObject;
+                manager.GetComponent<SpawnManager>().P1SpawnPoint = transform.GetChild(i).gameObject;
 
             }
             levelContents[i].SetActive(true);
