@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
-
+using TMPro;
 
 public class SpawnManager : MonoBehaviour
 {
     public PlayerInputManager PIM;
+
+    [Header("DropDown")]
+    public TMP_Dropdown p1_dropdown;
+    public TMP_Dropdown p2_dropdown;
+    public TMP_Dropdown p3_dropdown;
+    public TMP_Dropdown p4_dropdown;
 
     [Header("Level Transitions")]
     public bool levelTransitioned;
@@ -67,8 +73,17 @@ public class SpawnManager : MonoBehaviour
         if (!hasP2Joined && isP2Playing)
         {
             Instantiate(P2Prefab, P2SpawnPoint.transform);
+            hasP2Joined = true;
         }
     }
+
+    void getInputDevices(PlayerInput playerInput)
+    {
+        List<string> devices = new List<string>();
+        devices.Add(playerInput.name);
+        p1_dropdown.AddOptions(devices);
+    }
+
 
 
     public void OnPlayerJoined(PlayerInput playerInput)
