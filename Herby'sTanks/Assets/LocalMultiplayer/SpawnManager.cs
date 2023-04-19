@@ -10,6 +10,7 @@ public class SpawnManager : MonoBehaviour
     public PlayerInputManager PIM;
 
     [Header("DropDown")]
+    List<string> devicesList = new List<string>();
     public TMP_Dropdown p1_dropdown;
     public TMP_Dropdown p2_dropdown;
     public TMP_Dropdown p3_dropdown;
@@ -42,7 +43,6 @@ public class SpawnManager : MonoBehaviour
     private void Start()
     {
         initialScene = SceneManager.GetActiveScene().name;
-
     }
 
     public void Update()
@@ -79,15 +79,25 @@ public class SpawnManager : MonoBehaviour
 
     void getInputDevices(PlayerInput playerInput)
     {
-        List<string> devices = new List<string>();
-        devices.Add(playerInput.name);
-        p1_dropdown.AddOptions(devices);
+        //devices.Add();
+        string deviceName = playerInput.devices[0].ToString(); // get the device name as a string
+        string[] splitName = deviceName.Split(':'); // split the string by the colon separator
+        if (splitName[0] == "Mouse")
+        {
+            splitName[0] = "Keyboard";
+        }
+
+        devicesList.Add(splitName[0]);
+
+        //p1_dropdown.AddOptions(devicesList);
+
     }
 
 
 
     public void OnPlayerJoined(PlayerInput playerInput)
     {
+        getInputDevices(playerInput);
         switch (playerInput.playerIndex)
         {
             case 0:
@@ -102,9 +112,10 @@ public class SpawnManager : MonoBehaviour
 
         
         Debug.Log("PlayerInput ID: " + playerInput.playerIndex);
+        /*
         playerInput.gameObject.GetComponent<PlayerDetails>().playerID = playerInput.playerIndex + 1;
         playerInput.gameObject.GetComponent<PlayerDetails>().playerDevice = playerInput.currentControlScheme;
-
+        */
     }
 
     public void onLevelTransition()
