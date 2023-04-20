@@ -40,6 +40,7 @@ public class TankScript : MonoBehaviour
     public bool canShoot;
 
     [Header("Health")]
+    public bool canDie;
     public bool isShot;
     public bool canMove = true;
     public GameObject explosion;
@@ -223,17 +224,20 @@ public class TankScript : MonoBehaviour
                 screenPos = Mouse.current.position.ReadValue();
                 screenPos.z = Camera.main.nearClipPlane + 9;
 
-                crosshairPos = Camera.main.ScreenToWorldPoint(screenPos);
+                Ray ray = Camera.main.ScreenPointToRay(screenPos);
+                if (Physics.Raycast(ray, out RaycastHit hit))
+                {
+                    // The mouse position in world space
+                    Vector3 mousePosWorld = hit.point;
 
-                crosshairPos.y = 0.45f;
-                crosshair.position = crosshairPos;
+                    // Calculate the direction from the gameobject to the mouse position
+                    Vector3 direction = mousePosWorld - tankHead.position;
+                    float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
+                    direction.y = 0;
 
-
-                Vector3 relativePos = crosshairPos - tankHead.position;
-
-                Quaternion rotation = Quaternion.LookRotation(relativePos, new Vector3(0, 1, 0));
-                rotation.z = 0;
-                tankHead.rotation = rotation * Quaternion.Euler(0, -90, 0);
+                    Quaternion rotation = Quaternion.LookRotation(direction, new Vector3(0,1,0));
+                    tankHead.rotation = rotation * Quaternion.Euler(0, -90, 0);
+                }
                 break;
             case "Controller":
                 Vector3 rotateDir = Vector3.right * lookInput.x + Vector3.forward * lookInput.y;
@@ -257,7 +261,7 @@ public class TankScript : MonoBehaviour
             rb.velocity = Movement * moveSpeed;
             RotateBody(moveValue);
             RotateBarrel();
-            if (isShot)
+            if (isShot && canDie)
             {
                 Dead();
             }

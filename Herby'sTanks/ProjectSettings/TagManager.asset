@@ -10,6 +10,11 @@ TagManager:
   - P1SpawnPoint
   - P2SpawnPoint
   - HowManyPlayers
+  - Play
+  - Campaign
+  - PVP
+  - Survival
+  - Back
   layers:
   - Default
   - TransparentFX
