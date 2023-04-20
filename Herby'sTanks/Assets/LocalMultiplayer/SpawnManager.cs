@@ -8,63 +8,51 @@ using TMPro;
 public class SpawnManager : MonoBehaviour
 {
     public PlayerInputManager PIM;
+    public HowManyPlayers HMP;
 
-    [Header("DropDown")]
-    List<string> devicesList = new List<string>();
-    public TMP_Dropdown p1_dropdown;
-    public TMP_Dropdown p2_dropdown;
-    public TMP_Dropdown p3_dropdown;
-    public TMP_Dropdown p4_dropdown;
 
-    [Header("Level Transitions")]
-    public bool levelTransitioned;
-    public bool shouldTransition;
-    public string initialScene;
+
+
+    public bool joinPlayers;
 
     //Player1
     [Header("Player 1")]
     public string P1Input;
     public GameObject P1SpawnPoint;
     public GameObject P1Prefab;
-    bool hasP1Joined = false;
+    public bool hasP1Joined = false;
     //Player2
     [Header("Player 2")]
     public bool isP2Playing;
     public string P2Input;
     public GameObject P2SpawnPoint;
     public GameObject P2Prefab;
-    bool hasP2Joined = false;
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
-    }
-
+    public bool hasP2Joined = false;
     private void Start()
     {
-        initialScene = SceneManager.GetActiveScene().name;
+        HMP = GameObject.FindWithTag("HowManyPlayers").GetComponent<HowManyPlayers>();
+        if(HMP.PlayerCount > 1)
+        {
+            isP2Playing = true;
+        }
     }
 
     public void Update()
     {
-        if (shouldTransition)
+
+
+        if (joinPlayers)
         {
-            SceneManager.LoadScene("SampleScene");
-            shouldTransition = false;
-        }
-        if (SceneManager.GetActiveScene().name != initialScene)
-        {
-            levelTransitioned = true;           
-            OnTransition();            
+            JoinPlayers();
         }
 
     }
 
-    public void OnTransition()
+    public void JoinPlayers()
     {
-        PIM.joinBehavior = PlayerJoinBehavior.JoinPlayersManually;
         P1SpawnPoint = GameObject.FindWithTag("P1SpawnPoint");
         P2SpawnPoint = GameObject.FindWithTag("P2SpawnPoint");
+
         if(!hasP1Joined)
         {
             Instantiate(P1Prefab, P1SpawnPoint.transform);
@@ -77,27 +65,12 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    void getInputDevices(PlayerInput playerInput)
-    {
-        //devices.Add();
-        string deviceName = playerInput.devices[0].ToString(); // get the device name as a string
-        string[] splitName = deviceName.Split(':'); // split the string by the colon separator
-        if (splitName[0] == "Mouse")
-        {
-            splitName[0] = "Keyboard";
-        }
 
-        devicesList.Add(splitName[0]);
-
-        //p1_dropdown.AddOptions(devicesList);
-
-    }
 
 
 
     public void OnPlayerJoined(PlayerInput playerInput)
     {
-        getInputDevices(playerInput);
         switch (playerInput.playerIndex)
         {
             case 0:
@@ -116,10 +89,5 @@ public class SpawnManager : MonoBehaviour
         playerInput.gameObject.GetComponent<PlayerDetails>().playerID = playerInput.playerIndex + 1;
         playerInput.gameObject.GetComponent<PlayerDetails>().playerDevice = playerInput.currentControlScheme;
         */
-    }
-
-    public void onLevelTransition()
-    {
-        levelTransitioned = true;
     }
 }

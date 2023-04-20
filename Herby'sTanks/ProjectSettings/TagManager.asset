@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - P1SpawnPoint
   - P2SpawnPoint
+  - HowManyPlayers
   layers:
   - Default
   - TransparentFX

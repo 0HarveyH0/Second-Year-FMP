@@ -53,6 +53,15 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Join"",
+                    ""type"": ""Button"",
+                    ""id"": ""5c4ef22e-c06e-4485-8954-b9d684a4fda0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -242,6 +251,28 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b88ce178-dd6a-4816-be75-9629a010e6f7"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1fa08bc7-377c-45b4-9b31-eeac478306c9"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -281,6 +312,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
         m_Tank_Move = m_Tank.FindAction("Move", throwIfNotFound: true);
         m_Tank_Shoot = m_Tank.FindAction("Shoot", throwIfNotFound: true);
         m_Tank_Look = m_Tank.FindAction("Look", throwIfNotFound: true);
+        m_Tank_Join = m_Tank.FindAction("Join", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -343,6 +375,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Tank_Move;
     private readonly InputAction m_Tank_Shoot;
     private readonly InputAction m_Tank_Look;
+    private readonly InputAction m_Tank_Join;
     public struct TankActions
     {
         private @TankControls m_Wrapper;
@@ -350,6 +383,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Tank_Move;
         public InputAction @Shoot => m_Wrapper.m_Tank_Shoot;
         public InputAction @Look => m_Wrapper.m_Tank_Look;
+        public InputAction @Join => m_Wrapper.m_Tank_Join;
         public InputActionMap Get() { return m_Wrapper.m_Tank; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -368,6 +402,9 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                 @Look.started -= m_Wrapper.m_TankActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnLook;
+                @Join.started -= m_Wrapper.m_TankActionsCallbackInterface.OnJoin;
+                @Join.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnJoin;
+                @Join.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnJoin;
             }
             m_Wrapper.m_TankActionsCallbackInterface = instance;
             if (instance != null)
@@ -381,6 +418,9 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @Join.started += instance.OnJoin;
+                @Join.performed += instance.OnJoin;
+                @Join.canceled += instance.OnJoin;
             }
         }
     }
@@ -408,5 +448,6 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnJoin(InputAction.CallbackContext context);
     }
 }

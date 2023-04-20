@@ -136,7 +136,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player1SpawnPoint
   m_TagString: P1SpawnPoint
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23033142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.52, y: 0, z: 3.07}
+  m_LocalPosition: {x: -9.24, y: 0, z: 5.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -437,7 +437,7 @@ PrefabInstance:
     - target: {fileID: 6840843451929860993, guid: 7c637ae72f5610d428794b02f0d72599,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6840843451929860993, guid: 7c637ae72f5610d428794b02f0d72599,
         type: 3}
@@ -540,52 +540,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c637ae72f5610d428794b02f0d72599, type: 3}
---- !u!1 &445137823
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 445137825}
-  - component: {fileID: 445137824}
-  m_Layer: 0
-  m_Name: GameHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &445137824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445137823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11beb198e186a7e459253da32be5495a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayersUI: {fileID: 0}
-  spawnManagerObj: {fileID: 868553138}
---- !u!4 &445137825
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445137823}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &511866749
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,7 +552,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player2SpawnPoint
   m_TagString: P2SpawnPoint
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -610,26 +564,20 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511866749}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.52, y: 0, z: -3.68}
+  m_LocalPosition: {x: 8.56, y: 0, z: -4.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &868553138 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6840843451929860995, guid: 7c637ae72f5610d428794b02f0d72599,
-    type: 3}
-  m_PrefabInstance: {fileID: 425876658}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &868553140 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6840843451929860994, guid: 7c637ae72f5610d428794b02f0d72599,
     type: 3}
   m_PrefabInstance: {fileID: 425876658}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868553138}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
@@ -671,8 +619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelList:
-  - {fileID: 6587573794738469434, guid: 2f9d49ae3a423d840a6eb9acbf8a728a, type: 3}
-  - {fileID: 4474228324812846557, guid: fbac483ccafbb8e439f87a85662d53e4, type: 3}
+  - {fileID: 7357583299267693861, guid: 011e7449d298f974fbeacfc25a8b0cbb, type: 3}
   Level: {fileID: 0}
   levelFinished: 0
   levelIndex: 0

@@ -7,15 +7,16 @@ using UnityEngine.InputSystem;
 public class TankScript : MonoBehaviour
 {
     [Header("Player Details")]
-    private PlayerDetails playerDetails;
-    private string controlScheme;
-    private int playerNumber;
+
+    public PlayerDetails playerDetails;
+    public string controlScheme;
+    public int playerNumber;
 
     //Move
     [Header("Movement")]
-    private TankControls tankControls;
-    private Rigidbody rb;
-    private Vector2 moveValue;
+    public TankControls tankControls;
+    public Rigidbody rb;
+    public Vector2 moveValue;
     public float moveSpeed;
 
     //Move Rotation
@@ -40,6 +41,8 @@ public class TankScript : MonoBehaviour
 
     [Header("Health")]
     public bool isShot;
+    public bool canMove = true;
+    public GameObject explosion;
 
     [Header("Controller")]
     public Vector2 lookInput;
@@ -51,7 +54,6 @@ public class TankScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         playerDetails = GetComponent<PlayerDetails>();
-        controlScheme = playerDetails.playerDevice;
         tankControls = new TankControls();
         if(controlScheme == "Keyboard & Mouse")
         {
@@ -73,7 +75,11 @@ public class TankScript : MonoBehaviour
     private void Start()
     {
         canShoot = true;
+        controlScheme = GetComponent<PlayerInput>().currentControlScheme;
+
     }
+
+
 
     public void GetLookInput(InputAction.CallbackContext ctx)
     {
@@ -210,6 +216,7 @@ public class TankScript : MonoBehaviour
 
     private void RotateBarrel()
     {
+        Debug.Log(controlScheme);
         switch (controlScheme)
         {
             case "Keyboard & Mouse":
@@ -242,20 +249,34 @@ public class TankScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float horizontal = moveValue.x;
-        float vertical = moveValue.y;
-        Vector3 Movement = this.transform.right * horizontal + this.transform.forward * vertical;
-        rb.velocity = Movement * moveSpeed;
-        RotateBody(moveValue);
-        RotateBarrel();
-        if (isShot)
+        if (canMove)
         {
-            Debug.Log("isDead");
+            float horizontal = moveValue.x;
+            float vertical = moveValue.y;
+            Vector3 Movement = this.transform.right * horizontal + this.transform.forward * vertical;
+            rb.velocity = Movement * moveSpeed;
+            RotateBody(moveValue);
+            RotateBarrel();
+            if (isShot)
+            {
+                Dead();
+            }
+
+            CastRay(bulletHole.position, bulletHole.forward);
+        }
+        else
+        {
+
         }
 
-        CastRay(bulletHole.position, bulletHole.forward);
-
     }
+
+    void Dead()
+    {
+        Instantiate(explosion, transform.position, transform.rotation);
+        canMove = false;
+    }
+
 
     void CastRay(Vector3 position, Vector3 direction)
     {
