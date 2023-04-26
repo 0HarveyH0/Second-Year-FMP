@@ -15,6 +15,7 @@ TagManager:
   - PVP
   - Survival
   - Back
+  - Quit
   layers:
   - Default
   - TransparentFX

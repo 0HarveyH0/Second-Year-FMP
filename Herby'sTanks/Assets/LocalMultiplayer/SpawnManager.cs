@@ -20,6 +20,7 @@ public class SpawnManager : MonoBehaviour
     public string P1Input;
     public GameObject P1SpawnPoint;
     public GameObject P1Prefab;
+    public GameObject P1Tank;
     public bool hasP1Joined = false;
     //Player2
     [Header("Player 2")]
@@ -39,8 +40,6 @@ public class SpawnManager : MonoBehaviour
 
     public void Update()
     {
-
-
         if (joinPlayers)
         {
             JoinPlayers();
@@ -53,19 +52,26 @@ public class SpawnManager : MonoBehaviour
         P1SpawnPoint = GameObject.FindWithTag("P1SpawnPoint");
         P2SpawnPoint = GameObject.FindWithTag("P2SpawnPoint");
 
-        if(!hasP1Joined)
-        {
-            Instantiate(P1Prefab, P1SpawnPoint.transform);
+            P1Tank = Instantiate(P1Prefab, P1SpawnPoint.transform);
             hasP1Joined = true;
-        }
-        if (!hasP2Joined && isP2Playing)
+        
+        if (isP2Playing)
         {
             Instantiate(P2Prefab, P2SpawnPoint.transform);
             hasP2Joined = true;
         }
     }
 
-
+    public void RemovePlayers()
+    {
+        if (P1Prefab.activeSelf)
+        {
+            DestroyImmediate(P1Tank, true);
+        }else if (P2Prefab.activeSelf)
+        {
+            DestroyImmediate(P2Prefab, true);
+        }
+    }
 
 
 

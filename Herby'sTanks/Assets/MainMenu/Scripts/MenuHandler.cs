@@ -12,13 +12,27 @@ public class MenuHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (this.gameObject.CompareTag("Play"))
+        if (collision.collider.CompareTag("Bullet"))
         {
-            Mainmenu.SetActive(false);
-            PlayMenu.SetActive(true);
-        }else if (this.gameObject.CompareTag("Campaign"))
-        {
-            SceneManager.LoadScene("SampleScene");
+            if (this.gameObject.CompareTag("Play"))
+            {
+                Mainmenu.SetActive(false);
+                PlayMenu.SetActive(true);
+            }
+            else if (this.gameObject.CompareTag("Campaign"))
+            {
+                SceneManager.LoadScene("Campaign");
+            }else if (this.gameObject.CompareTag("Quit"))
+            {
+                Application.Quit();
+            }else if (this.gameObject.CompareTag("Back"))
+            {
+                if(PlayMenu.activeSelf)
+                {
+                    PlayMenu.SetActive(false);
+                }
+                Mainmenu.SetActive(true);
+            }
         }
     }
 }
