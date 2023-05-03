@@ -68,7 +68,7 @@ public partial class @TankControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""LeftStick"",
                     ""id"": ""2e9414b0-0b23-4aef-be7d-52d46f6c67b8"",
-                    ""path"": ""2DVector(mode=2)"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

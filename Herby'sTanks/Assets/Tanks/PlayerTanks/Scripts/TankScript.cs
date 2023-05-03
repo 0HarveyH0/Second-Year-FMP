@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerDetails))]
 public class TankScript : MonoBehaviour
 {
     [Header("Player Details")]
-
+    public SpawnManager spawnManager;
     public PlayerDetails playerDetails;
     public string controlScheme;
     public int playerNumber;
@@ -56,7 +57,11 @@ public class TankScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerDetails = GetComponent<PlayerDetails>();
         tankControls = new TankControls();
-        if(controlScheme == "Keyboard & Mouse")
+        if(SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            spawnManager = GameObject.Find("PlayerManager").GetComponent<SpawnManager>();
+        }
+        if (controlScheme == "Keyboard & Mouse")
         {
             crosshair.gameObject.SetActive(true);
         }
@@ -114,6 +119,7 @@ public class TankScript : MonoBehaviour
 
     private void RotateBody(Vector2 inputVal)
     {
+
         switch (controlScheme)
         {
             case "Keyboard & Mouse":
@@ -279,6 +285,7 @@ public class TankScript : MonoBehaviour
     {
         Instantiate(explosion, transform.position, transform.rotation);
         canMove = false;
+        spawnManager.checkIfDead(playerDetails.playerID + 1);
     }
 
 

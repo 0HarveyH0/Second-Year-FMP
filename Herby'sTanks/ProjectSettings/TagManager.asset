@@ -16,6 +16,8 @@ TagManager:
   - Survival
   - Back
   - Quit
+  - P3SpawnPoint
+  - P4SpawnPoint
   layers:
   - Default
   - TransparentFX

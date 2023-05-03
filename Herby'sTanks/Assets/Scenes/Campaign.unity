@@ -467,8 +467,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.75
-  m_fontSizeBase: 0.75
+  m_fontSize: 0.6
+  m_fontSizeBase: 0.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -541,6 +541,12 @@ PrefabInstance:
       propertyPath: P2Prefab
       value: 
       objectReference: {fileID: 5990235801957960232, guid: fe1be3b988da03545a8fd51eb5a424a2,
+        type: 3}
+    - target: {fileID: 6840843451929860992, guid: 7c637ae72f5610d428794b02f0d72599,
+        type: 3}
+      propertyPath: P3Prefab
+      value: 
+      objectReference: {fileID: 5990235801957960232, guid: 659f1f443bef8ad4182dca31d7091a62,
         type: 3}
     - target: {fileID: 6840843451929860993, guid: 7c637ae72f5610d428794b02f0d72599,
         type: 3}
@@ -734,8 +740,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.75
-  m_fontSizeBase: 0.75
+  m_fontSize: 0.6
+  m_fontSizeBase: 0.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -888,8 +894,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.75
-  m_fontSizeBase: 0.75
+  m_fontSize: 0.6
+  m_fontSizeBase: 0.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1051,6 +1057,9 @@ MonoBehaviour:
   levelList:
   - {fileID: 6587573794738469434, guid: 2f9d49ae3a423d840a6eb9acbf8a728a, type: 3}
   - {fileID: 4474228324812846557, guid: fbac483ccafbb8e439f87a85662d53e4, type: 3}
+  - {fileID: 1384160382057825997, guid: b36832ce754f0d342a3d5cb408c1d5bd, type: 3}
+  - {fileID: 3872783740100429818, guid: 0bb8fa55ac38a8046ab7f0cb230e5772, type: 3}
+  - {fileID: 1010925106528412596, guid: a592b515ff4965e42b77e34c562acfc4, type: 3}
   Level: {fileID: 0}
   levelFinished: 0
   levelIndex: 0
@@ -1199,6 +1208,7 @@ GameObject:
   - component: {fileID: 3131734429837236922}
   - component: {fileID: 2078970099028464927}
   - component: {fileID: 4268580132036338133}
+  - component: {fileID: 4268580132036338134}
   m_Layer: 0
   m_Name: ChalkBoard
   m_TagString: Untagged
@@ -1214,7 +1224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2323285058636431360}
   m_LocalRotation: {x: 0.6181506, y: -0, z: -0, w: 0.78605974}
-  m_LocalPosition: {x: 0.29999995, y: 4.504714, z: -1.2032514}
+  m_LocalPosition: {x: -33.68, y: 4.504714, z: -1.2032514}
   m_LocalScale: {x: -1013.63995, y: -675.76, z: -168.94}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1265,6 +1275,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &4268580132036338134
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2323285058636431360}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 78d9ad6634503a749b417190a87906ed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &5164211274097399908
 PrefabInstance:
   m_ObjectHideFlags: 0

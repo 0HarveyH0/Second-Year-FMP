@@ -213,6 +213,7 @@ MonoBehaviour:
   BounceCount: 2
   maxBullets: 1000
   canShoot: 0
+  canDie: 1
   isShot: 0
   canMove: 1
   explosion: {fileID: 2248393549402400429, guid: 4e2ba96c128541f498f456b3949c744a,
