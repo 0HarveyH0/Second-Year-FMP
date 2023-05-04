@@ -18,6 +18,9 @@ public class MenuHandler : MonoBehaviour
             {
                 Mainmenu.SetActive(false);
                 PlayMenu.SetActive(true);
+            }else if (this.gameObject.CompareTag("PVP"))
+            {
+                SceneManager.LoadScene("PVP");
             }
             else if (this.gameObject.CompareTag("Campaign"))
             {

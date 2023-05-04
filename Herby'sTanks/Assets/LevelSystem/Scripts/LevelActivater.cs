@@ -5,12 +5,16 @@ using UnityEngine;
 public class LevelActivater : MonoBehaviour
 {
     public GameObject LevelInit;
+    public SpawnManager SpawnManager;
     public List<GameObject> levelContents;
     public List<GameObject> Enemies;
     public int enemyCount;
     public int currentEnemyCount;
+    public bool isCampaign;
+    public bool isPvp;
     void Start()
     {
+        SpawnManager = GameObject.Find("PlayerManager").GetComponent<SpawnManager>();
         LevelInit = GameObject.Find("LevelManager");
         for(int i = 0; i < transform.childCount; i++)
         {
@@ -47,15 +51,26 @@ public class LevelActivater : MonoBehaviour
     }
     private void Update()
     {
-        if(currentEnemyCount == 0)
+        if (isCampaign)
         {
-            Debug.Log("EnemyAlldead");
-            var levelInitilizer = LevelInit.GetComponent<LevelInitilizer>();
-            levelInitilizer.levelFinished = true;
-        }
-        else
+            if (currentEnemyCount == 0)
+            {
+                Debug.Log("EnemyAlldead");
+                var levelInitilizer = LevelInit.GetComponent<LevelInitilizer>();
+                levelInitilizer.levelFinished = true;
+            }
+            else
+            {
+                checkEnemyState();
+            }
+        }else if (isPvp)
         {
-            checkEnemyState();
+            if (SpawnManager.shouldFinish)
+            {
+                var levelInitilizer = LevelInit.GetComponent<LevelInitilizer>();
+                levelInitilizer.levelFinished = true;
+                SpawnManager.shouldFinish = false;
+            }
         }
     }
 }

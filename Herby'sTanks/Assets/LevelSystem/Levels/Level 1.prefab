@@ -190,10 +190,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelInit: {fileID: 0}
+  SpawnManager: {fileID: 0}
   levelContents: []
   Enemies: []
   enemyCount: 0
   currentEnemyCount: 0
+  isCampaign: 1
+  isPvp: 0
 --- !u!114 &3946043493765124035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +212,8 @@ MonoBehaviour:
   missionName: '"First Encounter"'
   missionLevel: 1
   enemyCount: 2
+  isPvP: 0
+  isCampaign: 1
 --- !u!1 &7533451956679676375
 GameObject:
   m_ObjectHideFlags: 0

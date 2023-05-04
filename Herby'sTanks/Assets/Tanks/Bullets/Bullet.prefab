@@ -100,8 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletParticleSystem: {fileID: 0}
   rb: {fileID: 6980627814568314296}
-  BounceCount: 1
-  speed: 6
+  BounceCount: 2
+  speed: 7
 --- !u!54 &6980627814568314296
 Rigidbody:
   m_ObjectHideFlags: 0

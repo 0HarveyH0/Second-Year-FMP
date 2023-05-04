@@ -45,7 +45,13 @@ public class LevelInitilizer : MonoBehaviour
     {
         MissionName.text = "Mission:" + levelDetails.missionName;
         MissionLevel.text = "Level: " + levelDetails.missionLevel.ToString();
-        EnemyCount.text = "Enemies: " + levelDetails.enemyCount.ToString();
+        if (levelDetails.isPvP)
+        {
+            EnemyCount.text = "";
+        }else if (levelDetails.isCampaign)
+        {
+            EnemyCount.text = "Enemies: " + levelDetails.enemyCount.ToString();
+        }
         levelScreen.SetActive(true);
         yield return new WaitForSeconds(3);
         levelScreen.SetActive(false);

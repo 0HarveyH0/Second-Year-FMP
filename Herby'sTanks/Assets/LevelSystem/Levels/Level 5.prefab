@@ -258,10 +258,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelInit: {fileID: 0}
+  SpawnManager: {fileID: 0}
   levelContents: []
   Enemies: []
   enemyCount: 0
   currentEnemyCount: 0
+  isCampaign: 1
+  isPvp: 0
 --- !u!114 &3670277762740441572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +280,8 @@ MonoBehaviour:
   missionName: '"Opening Up"'
   missionLevel: 5
   enemyCount: 1
+  isPvP: 0
+  isCampaign: 1
 --- !u!1 &1586033550794708759
 GameObject:
   m_ObjectHideFlags: 0

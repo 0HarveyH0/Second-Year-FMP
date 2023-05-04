@@ -706,10 +706,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelInit: {fileID: 0}
+  SpawnManager: {fileID: 0}
   levelContents: []
   Enemies: []
   enemyCount: 0
   currentEnemyCount: 0
+  isCampaign: 1
+  isPvp: 0
 --- !u!114 &672744299134645674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,6 +728,8 @@ MonoBehaviour:
   missionName: '"Getting Serious"'
   missionLevel: 4
   enemyCount: 2
+  isPvP: 0
+  isCampaign: 1
 --- !u!1 &3938053324717580874
 GameObject:
   m_ObjectHideFlags: 0

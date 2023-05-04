@@ -75,10 +75,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelInit: {fileID: 0}
+  SpawnManager: {fileID: 0}
   levelContents: []
   Enemies: []
   enemyCount: 0
   currentEnemyCount: 0
+  isCampaign: 1
+  isPvp: 0
 --- !u!114 &215983521804273549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +97,8 @@ MonoBehaviour:
   missionName: '"Road Blocks"'
   missionLevel: 2
   enemyCount: 3
+  isPvP: 0
+  isCampaign: 1
 --- !u!1001 &265204106060908676
 PrefabInstance:
   m_ObjectHideFlags: 0

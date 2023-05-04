@@ -9,7 +9,9 @@ public class SpawnManager : MonoBehaviour
 {
     public PlayerInputManager PIM;
     public HowManyPlayers HMP;
+    public bool shouldFinish;
     public bool joinPlayers;
+    public int deadCount;
 
     //Player1
     [Header("Player 1")]
@@ -25,6 +27,7 @@ public class SpawnManager : MonoBehaviour
     public string P2Input;
     public GameObject P2SpawnPoint;
     public GameObject P2Prefab;
+    public GameObject P2Tank;
     public bool hasP2Joined = false;
     public bool isP2Dead;
     //Player3
@@ -33,6 +36,7 @@ public class SpawnManager : MonoBehaviour
     public string P3Input;
     public GameObject P3SpawnPoint;
     public GameObject P3Prefab;
+    public GameObject P3Tank;
     public bool hasP3Joined = false;
     public bool isP3Dead;
     //Player4
@@ -41,6 +45,7 @@ public class SpawnManager : MonoBehaviour
     public string P4Input;
     public GameObject P4SpawnPoint;
     public GameObject P4Prefab;
+    public GameObject P4Tank;
     public bool hasP4Joined = false;
     public bool isP4Dead;
 
@@ -55,6 +60,10 @@ public class SpawnManager : MonoBehaviour
         {
             isP3Playing = true;
         }
+        if(HMP.PlayerCount > 3)
+        {
+            isP4Playing = true;
+        }
     }
 
     public void Update()
@@ -68,55 +77,108 @@ public class SpawnManager : MonoBehaviour
 
     public void JoinPlayers()
     {
+        deadCount = 0;
         P1SpawnPoint = GameObject.FindWithTag("P1SpawnPoint");
         P2SpawnPoint = GameObject.FindWithTag("P2SpawnPoint");
         P3SpawnPoint = GameObject.FindWithTag("P3SpawnPoint");
+        P4SpawnPoint = GameObject.FindWithTag("P4SpawnPoint");
 
-            P1Tank = Instantiate(P1Prefab, P1SpawnPoint.transform);
-            hasP1Joined = true;
-        
+        P1Tank = Instantiate(P1Prefab, P1SpawnPoint.transform);
+        hasP1Joined = true;
+        isP1Dead = false;
+
         if (isP2Playing)
         {
-            Instantiate(P2Prefab, P2SpawnPoint.transform);
+            P2Tank = Instantiate(P2Prefab, P2SpawnPoint.transform);
             hasP2Joined = true;
+            isP2Dead = false;
         }
         if (isP3Playing)
         {
-            Instantiate(P3Prefab, P3SpawnPoint.transform);
+            P3Tank = Instantiate(P3Prefab, P3SpawnPoint.transform);
             hasP3Joined = true;
+            isP3Dead = false;
+        }
+        if(isP4Playing)
+        {
+            P4Tank = Instantiate(P4Prefab, P4SpawnPoint.transform);
+            hasP4Joined = true;
+            isP4Dead = false;
         }
     }
-
     public void RemovePlayers()
     {
         if (P1Prefab.activeSelf)
         {
             DestroyImmediate(P1Tank, true);
-        }else if (P2Prefab.activeSelf)
+        }
+        if (P2Prefab.activeSelf)
         {
-            DestroyImmediate(P2Prefab, true);
+            DestroyImmediate(P2Tank, true);
+        }if (P3Prefab.activeSelf)
+        {
+            DestroyImmediate(P3Tank, true);
+        }if(P4Prefab.activeSelf)
+        {
+            DestroyImmediate(P4Tank, true);
         }
     }
-
     public void checkIfDead(int index)
     {
         switch (index)
         {
             case 1:
                 isP1Dead = true;
+                deadCount++;
                 break;
             case 2:
                 isP2Dead = true;
+                deadCount++;
                 break;
             case 3:
                 isP3Dead = true;
+                deadCount++;
                 break;
             case 4:
                 isP4Dead = true;
+                deadCount++;
+                break;
+        }
+        countOnDeath();
+    }
+    public void countOnDeath()
+    {
+        switch(HMP.PlayerCount)
+        {
+            case 0:
+                break;
+            case 1:
+                if(deadCount == 0)
+                {
+                    shouldFinish = true;
+                }
+                break;
+            case 2:
+                if(deadCount == 1)
+                {
+                    shouldFinish = true;
+                    deadCount = 0;
+                }
+                break;
+            case 3:
+                if (deadCount == 2)
+                {
+                    shouldFinish = true;
+                }
+                break;
+            case 4:
+                if (deadCount == 3)
+                {
+                    shouldFinish = true;
+                }
                 break;
         }
     }
-
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         switch (playerInput.playerIndex)

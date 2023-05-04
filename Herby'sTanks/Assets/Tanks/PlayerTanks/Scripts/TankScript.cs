@@ -45,6 +45,7 @@ public class TankScript : MonoBehaviour
     public bool isShot;
     public bool canMove = true;
     public GameObject explosion;
+    public GameObject smokeTrail;
 
     [Header("Controller")]
     public Vector2 lookInput;
@@ -81,6 +82,7 @@ public class TankScript : MonoBehaviour
     private void Start()
     {
         canShoot = true;
+        smokeTrail.SetActive(false);
         controlScheme = GetComponent<PlayerInput>().currentControlScheme;
 
     }
@@ -100,7 +102,7 @@ public class TankScript : MonoBehaviour
 
     public void HasShot(InputAction.CallbackContext ctx)
     {
-        if (bulletCount < maxBullets && canShoot)
+        if (bulletCount < maxBullets && canShoot && !isShot)
         {
             StartCoroutine(FireRate());
         }                 
@@ -285,6 +287,7 @@ public class TankScript : MonoBehaviour
     {
         Instantiate(explosion, transform.position, transform.rotation);
         canMove = false;
+        smokeTrail.SetActive(true);
         spawnManager.checkIfDead(playerDetails.playerID + 1);
     }
 
