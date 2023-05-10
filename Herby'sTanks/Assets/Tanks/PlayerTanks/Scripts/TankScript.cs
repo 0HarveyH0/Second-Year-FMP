@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Pool;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerDetails))]
@@ -15,6 +16,7 @@ public class TankScript : MonoBehaviour
 
     //Move
     [Header("Movement")]
+    [SerializeField] private Transform trackPos;
     public TankControls tankControls;
     public Rigidbody rb;
     public Vector2 moveValue;
@@ -280,8 +282,25 @@ public class TankScript : MonoBehaviour
         {
 
         }
+        if(moveValue.x > 0 || moveValue.y >0)
+        {
+            StartCoroutine(tankTrack());
+            GameObject track = TankTracks.instance.GetPooledObject();
 
+            if (track != null)
+            {
+                track.transform.position = trackPos.position;
+                track.transform.rotation = trackPos.rotation;
+                track.SetActive(true);
+            }
+        }
     }
+
+    private IEnumerator tankTrack()
+    {
+        yield return new WaitForSeconds(5f);
+    }
+
 
     void Dead()
     {
