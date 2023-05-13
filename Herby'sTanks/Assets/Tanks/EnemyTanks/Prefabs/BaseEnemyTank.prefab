@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a28e817a73ea14a8a8e60139fda575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 1409482891753755144}
   BounceCount: 2
   player: {fileID: 0}
   bullet: {fileID: 1185741101620450717, guid: 9b3c0b062c06bb844a1563b505a59b8a, type: 3}
@@ -60,7 +61,7 @@ MonoBehaviour:
   isShot: 0
   moveSpeed: 2
   rotationSpeed: 5
-  sightRange: 7
+  sightRange: 12
   barrel: {fileID: 6543878209146877402}
   barrelRotationSpeed: 5
 --- !u!65 &1409482891753755255

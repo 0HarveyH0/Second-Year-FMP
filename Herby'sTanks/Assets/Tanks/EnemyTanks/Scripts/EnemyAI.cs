@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 enum enemyStates { patrolling, shooting }
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] private Transform parent;
     public int BounceCount;
     public Transform player;
     public GameObject bullet;
@@ -21,7 +22,7 @@ public class EnemyAI : MonoBehaviour
     //AI
     public float moveSpeed = 5.0f; // The speed at which the tank moves
     public float rotationSpeed = 2.0f; // The speed at which the tank rotates
-    public float sightRange = 10.0f; // The range at which the tank can see the player
+    public float sightRange; // The range at which the tank can see the player
     public Transform barrel;
     public float barrelRotationSpeed = 5.0f; // The speed at which the barrel rotates
     private Rigidbody rb;
@@ -97,7 +98,7 @@ public class EnemyAI : MonoBehaviour
     IEnumerator FireRate()
     {
         Debug.Log("hasShot");
-        var bulletObj = Instantiate(bullet, bulletHole.position, bulletHole.rotation);
+        Instantiate(bullet, bulletHole.position, bulletHole.rotation);
         bulletCount++;
         canShoot = false;
         yield return new WaitForSeconds(1.5f);

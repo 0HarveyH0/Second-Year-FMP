@@ -7,7 +7,7 @@ public class TankTracks : MonoBehaviour
     public static TankTracks instance;
 
     private List<GameObject> pooledObjects = new List<GameObject>();
-    private int amountToPool = 30;
+    private int amountToPool = 500;
 
     [SerializeField] private GameObject trackPrefab;
 
@@ -25,6 +25,7 @@ public class TankTracks : MonoBehaviour
         for(int i = 0; i < amountToPool; i++)
         {
             GameObject obj = Instantiate(trackPrefab);
+            obj.transform.parent = transform;
             obj.SetActive(false);
             pooledObjects.Add(obj);
         }

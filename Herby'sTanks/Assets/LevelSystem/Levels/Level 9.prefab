@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185848961507432352}
-  m_LocalRotation: {x: -0, y: -0.7068375, z: -0, w: 0.707376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.48, y: 0, z: -0.763}
   m_LocalScale: {x: 1, y: 1, z: 1.8751}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7388317947493519770}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -89.956, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1781213023433395494
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,14 +225,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2153281586582499185}
-  m_LocalRotation: {x: -0, y: -0.7068375, z: -0, w: 0.707376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.48, y: 0, z: -3.052}
   m_LocalScale: {x: 1, y: 1, z: 1.8751}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7388317947493519770}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -89.956, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2435273999137227446
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,14 +378,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6602298661909281874}
-  m_LocalRotation: {x: -0, y: -0.7068375, z: -0, w: 0.707376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.48, y: 0, z: 2.49}
   m_LocalScale: {x: 1, y: 1, z: 1.8751}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7388317947493519770}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -89.956, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8683791560189369981
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,14 +409,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8683791560189369981}
-  m_LocalRotation: {x: -0, y: -0.7068375, z: -0, w: 0.707376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.48, y: 0, z: 5.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7388317947493519770}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -89.956, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &128725089731506291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -499,6 +499,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -593,6 +598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1049,6 +1059,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1142,6 +1157,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DarkerWoodBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067184406853927211, guid: 50a4399aa2100474caa053e581265287,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1237,6 +1257,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1330,6 +1355,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1425,6 +1455,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1518,6 +1553,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1613,6 +1653,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1706,6 +1751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1801,11 +1851,47 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 453706906457682498}
   m_SourcePrefab: {fileID: 100100000, guid: d68ca5d0e11fb3e468ad8c9463e704f2, type: 3}
+--- !u!1 &1371529729465802973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2158720641780659370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &453706906457682498
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371529729465802973}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.27155274, y: 0.02, z: 0.02}
+  m_Center: {x: -0.009915529, y: 0, z: 0}
 --- !u!4 &1748372648771074663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 411559663446888141, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
@@ -1895,10 +1981,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3961763584136024163}
   m_SourcePrefab: {fileID: 100100000, guid: d68ca5d0e11fb3e468ad8c9463e704f2, type: 3}
 --- !u!4 &2754138228420103146 stripped
 Transform:
@@ -1906,6 +2001,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2562140772626089255}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3275096099869528400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2562140772626089255}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3961763584136024163
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275096099869528400}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.09719033, z: 0.02}
+  m_Center: {x: 0, y: 0.000020169753, z: 7.7355805e-10}
 --- !u!1001 &2631552476818508463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1988,6 +2110,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2086,7 +2213,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6354072233647838195, guid: 1620ca20c0e61c741986dcf28ec99449,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3756347552422641590}
   m_SourcePrefab: {fileID: 100100000, guid: 1620ca20c0e61c741986dcf28ec99449, type: 3}
 --- !u!4 &8569785315917344127 stripped
 Transform:
@@ -2094,6 +2225,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2704444546383373366}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9053975758831941573 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6354072233647838195, guid: 1620ca20c0e61c741986dcf28ec99449,
+    type: 3}
+  m_PrefabInstance: {fileID: 2704444546383373366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3756347552422641590
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9053975758831941573}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13605136, y: 0.02, z: 0.02}
+  m_Center: {x: 0.0003605121, y: 9.926167e-24, z: 7.7355805e-10}
 --- !u!1001 &2877874875744245026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2176,6 +2334,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2271,6 +2434,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2365,11 +2533,47 @@ PrefabInstance:
       propertyPath: m_Name
       value: DarkerWoodBox
       objectReference: {fileID: 0}
+    - target: {fileID: 1067184406853927211, guid: 50a4399aa2100474caa053e581265287,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1067184406853927211, guid: 50a4399aa2100474caa053e581265287,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4501395312551441884}
   m_SourcePrefab: {fileID: 100100000, guid: 50a4399aa2100474caa053e581265287, type: 3}
+--- !u!1 &2546314868625868510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1067184406853927211, guid: 50a4399aa2100474caa053e581265287,
+    type: 3}
+  m_PrefabInstance: {fileID: 3285716165122377717}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4501395312551441884
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2546314868625868510}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0, z: 9.313226e-10}
 --- !u!4 &2890610903987641444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 397643039200058257, guid: 50a4399aa2100474caa053e581265287,
@@ -2552,6 +2756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2741,6 +2950,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2834,6 +3048,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2929,11 +3148,47 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3403782821602338210}
   m_SourcePrefab: {fileID: 100100000, guid: d68ca5d0e11fb3e468ad8c9463e704f2, type: 3}
+--- !u!1 &3754328183044422768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 4244636526682073095}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3403782821602338210
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3754328183044422768}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.09688027, z: 0.02}
+  m_Center: {x: 0, y: -0.0002877141, z: 3.691899e-18}
 --- !u!4 &4562671146233358026 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 411559663446888141, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
@@ -3022,6 +3277,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3116,6 +3376,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DarkerWoodBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067184406853927211, guid: 50a4399aa2100474caa053e581265287,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3290,6 +3555,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3383,6 +3653,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3478,6 +3753,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3571,6 +3851,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3666,6 +3951,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3759,6 +4049,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3854,6 +4149,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3947,6 +4247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4042,6 +4347,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4136,10 +4446,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6292016597903800918}
   m_SourcePrefab: {fileID: 100100000, guid: d68ca5d0e11fb3e468ad8c9463e704f2, type: 3}
 --- !u!4 &6231790447095991458 stripped
 Transform:
@@ -4147,6 +4466,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6038732478161994351}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6714889895571363352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6038732478161994351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6292016597903800918
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6714889895571363352}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.29217178, y: 0.02, z: 0.02}
+  m_Center: {x: -0.00025650565, y: 0.000000007735581, z: 7.7355805e-10}
 --- !u!1001 &6321371156275322504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4324,6 +4670,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4417,6 +4768,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4512,6 +4868,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4605,6 +4966,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DarkerWoodBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067184406853927211, guid: 50a4399aa2100474caa053e581265287,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4700,6 +5066,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4793,6 +5164,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DarkerWoodBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067184406853927211, guid: 50a4399aa2100474caa053e581265287,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4888,6 +5264,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DarkerWoodBox
       objectReference: {fileID: 0}
+    - target: {fileID: 1067184406853927211, guid: 50a4399aa2100474caa053e581265287,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4981,6 +5362,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DarkerWoodBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067184406853927211, guid: 50a4399aa2100474caa053e581265287,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5076,10 +5462,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5979474718205660838}
   m_SourcePrefab: {fileID: 100100000, guid: d68ca5d0e11fb3e468ad8c9463e704f2, type: 3}
 --- !u!4 &8451826918482204931 stripped
 Transform:
@@ -5087,6 +5482,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8141607180334192590}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9079603615337219001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8141607180334192590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5979474718205660838
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9079603615337219001}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.096914954, z: 0.02}
+  m_Center: {x: 0, y: -0.0005271535, z: 7.7355805e-10}
 --- !u!1001 &8171532670469256039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5357,6 +5779,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080292137898202231, guid: d68ca5d0e11fb3e468ad8c9463e704f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bounceable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

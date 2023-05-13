@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class TankScript : MonoBehaviour
 {
     [Header("Player Details")]
+    [SerializeField] private GameObject TankParent;
     public SpawnManager spawnManager;
     public PlayerDetails playerDetails;
     public string controlScheme;
@@ -17,6 +18,7 @@ public class TankScript : MonoBehaviour
     //Move
     [Header("Movement")]
     [SerializeField] private Transform trackPos;
+    private float timer = 0.07f;
     public TankControls tankControls;
     public Rigidbody rb;
     public Vector2 moveValue;
@@ -33,9 +35,9 @@ public class TankScript : MonoBehaviour
     public Transform crosshair;
     public Transform tankHead;
     public Vector3 screenPos;
+    [SerializeField] private GameObject bullet;
     public Vector3 crosshairPos;
     public Transform bulletHole;
-    public GameObject bullet;
     public int bulletCount;
     public bool hasShot;
     public int BounceCount;
@@ -110,16 +112,16 @@ public class TankScript : MonoBehaviour
         }                 
     }
 
-
     IEnumerator FireRate()
     {
         Debug.Log("hasShot");
-        var bulletObj = Instantiate(bullet, bulletHole.position, bulletHole.rotation);
-        bulletCount++;
+        var bulletObj = Instantiate(bullet, bulletHole.position, bulletHole.rotation); bulletCount++;
+        bulletObj.transform.parent = TankParent.transform;
         canShoot = false;
         yield return new WaitForSeconds(0.5f);
         canShoot = true;
     }
+
 
     private void RotateBody(Vector2 inputVal)
     {
@@ -263,6 +265,7 @@ public class TankScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        timer -= 1 * Time.deltaTime;
         if (canMove)
         {
             float horizontal = moveValue.x;
@@ -282,29 +285,36 @@ public class TankScript : MonoBehaviour
         {
 
         }
-        if(moveValue.x > 0 || moveValue.y >0)
+        if(moveValue.x != 0 || moveValue.y != 0)
         {
-            StartCoroutine(tankTrack());
-            GameObject track = TankTracks.instance.GetPooledObject();
-
-            if (track != null)
+            if(timer <= 0)
             {
-                track.transform.position = trackPos.position;
-                track.transform.rotation = trackPos.rotation;
-                track.SetActive(true);
+                SpawnTankTrack();
+                timer = 0.07f;
             }
         }
+
     }
 
-    private IEnumerator tankTrack()
+
+
+    void SpawnTankTrack()
     {
-        yield return new WaitForSeconds(5f);
-    }
+        GameObject track = TankTracks.instance.GetPooledObject();
 
+        if (track != null)
+        {
+            track.transform.position = trackPos.position;
+            track.transform.rotation = trackPos.rotation;
+            track.SetActive(true);
+        }
+
+    }
 
     void Dead()
     {
-        Instantiate(explosion, transform.position, transform.rotation);
+        var explosionObj = Instantiate(explosion, transform.position, transform.rotation);
+        explosionObj.transform.parent = TankParent.transform;
         canMove = false;
         smokeTrail.SetActive(true);
         spawnManager.checkIfDead(playerDetails.playerID + 1);
