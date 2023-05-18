@@ -8,6 +8,7 @@ enum enemyStates { patrolling, shooting }
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private Transform parent;
+    [SerializeField] private float fireRate;
     public int BounceCount;
     public Transform player;
     public GameObject bullet;
@@ -101,7 +102,7 @@ public class EnemyAI : MonoBehaviour
         Instantiate(bullet, bulletHole.position, bulletHole.rotation);
         bulletCount++;
         canShoot = false;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(fireRate);
         canShoot = true;
         currentState = enemyStates.patrolling;
     }

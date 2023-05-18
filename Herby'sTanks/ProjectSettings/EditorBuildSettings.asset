@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Campaign.unity
     guid: 03e5a8269002c9441a26370f2e4f5b4c
+  - enabled: 1
+    path: Assets/Scenes/Survival.unity
+    guid: f27fec1e3267d004d924143f4f31e873
   m_configObjects: {}

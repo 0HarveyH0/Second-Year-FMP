@@ -2520,6 +2520,7 @@ GameObject:
   - component: {fileID: 1477807105}
   - component: {fileID: 1477807104}
   - component: {fileID: 1477807103}
+  - component: {fileID: 1477807106}
   m_Layer: 0
   m_Name: Survival
   m_TagString: Survival
@@ -2614,6 +2615,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477807101}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1477807106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477807101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68fc61d17bf55e445be49e47e0f3d70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mainmenu: {fileID: 1181807798}
+  PlayMenu: {fileID: 1506130952}
 --- !u!1 &1506130952
 GameObject:
   m_ObjectHideFlags: 0

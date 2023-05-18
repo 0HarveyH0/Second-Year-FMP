@@ -2,36 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum roundStates
+{
+    start,
+    during,
+    end
+}
 public class SurvivalHandler : MonoBehaviour
 {
     public Transform[] spawnPoints;
     [SerializeField] private bool spawnEnemyBool;
     [SerializeField] private bool spawnEnemyCo;
     [SerializeField] private GameObject enemy;
+    [SerializeField] private List<GameObject> enemyList;
     [SerializeField] private bool atStartOfRound;
+    [SerializeField] private roundStates currentState;
     public int round;
     [SerializeField]private int spawnCount;
     private void Update()
     {
-        if (atStartOfRound)
+        switch (currentState)
         {
-            GetSpawnCount(round);
-        }
-        if (spawnEnemyBool)
-        {
-            SpawnEnemies();
+            case roundStates.start:
+                GetSpawnCount(round);
+                SpawnEnemies();
+                break;
+            case roundStates.during:
+                break;
+            case roundStates.end:
+                break;
         }
     }
     void SpawnEnemies()
     {
-        for(int i = 0; i < spawnCount; i++)
-        {
-            if (spawnEnemyCo)
-            {
-                StartCoroutine(SpawnEnemiesRoutine());
-            }
-        }
-        spawnEnemyBool = false;
+                 
+             StartCoroutine(SpawnEnemiesRoutine());           
+        
+        currentState = roundStates.during;
     }
 
     public void GetSpawnCount(int r)
@@ -42,10 +49,12 @@ public class SurvivalHandler : MonoBehaviour
 
     IEnumerator SpawnEnemiesRoutine()
     {
-        int pointToSpawnAt = Random.Range(0, spawnPoints.Length);
-        spawnEnemyCo = false;
-        Instantiate(enemy, spawnPoints[pointToSpawnAt]);
-        yield return new WaitForSecondsRealtime(3f);
-        spawnEnemyCo = true;
+        for(int i = 0; i < spawnCount; i++)
+        {
+            int pointToSpawnAt = Random.Range(0, spawnPoints.Length);
+            var enemyObj = Instantiate(enemy, spawnPoints[pointToSpawnAt]);
+            enemyList.Add(enemyObj);
+            yield return new WaitForSecondsRealtime(5f);
+        }
     }
 }

@@ -25,7 +25,11 @@ public class MenuHandler : MonoBehaviour
             else if (this.gameObject.CompareTag("Campaign"))
             {
                 SceneManager.LoadScene("Campaign");
-            }else if (this.gameObject.CompareTag("Quit"))
+            }else if (this.gameObject.CompareTag("Survival"))
+            {
+                SceneManager.LoadScene("Survival");
+            }
+            else if (this.gameObject.CompareTag("Quit"))
             {
                 Application.Quit();
             }else if (this.gameObject.CompareTag("Back"))
