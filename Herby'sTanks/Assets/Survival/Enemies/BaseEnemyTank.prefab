@@ -49,6 +49,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  BounceCount: 0
+  isShot: 0
+  player: {fileID: 0}
+  explosion: {fileID: 2248393549402400429, guid: 4e2ba96c128541f498f456b3949c744a,
+    type: 3}
+  moveSpeed: 5
+  rotationSpeed: 2
+  sightRange: 0
+  barrel: {fileID: 8039315952921678859}
+  barrelRotationSpeed: 5
+  rb: {fileID: 0}
 --- !u!65 &1409482891753755255
 BoxCollider:
   m_ObjectHideFlags: 0

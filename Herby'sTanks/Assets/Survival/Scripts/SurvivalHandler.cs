@@ -17,8 +17,11 @@ public class SurvivalHandler : MonoBehaviour
     [SerializeField] private List<GameObject> enemyList;
     [SerializeField] private bool atStartOfRound;
     [SerializeField] private roundStates currentState;
+    [SerializeField] private int inactive;
     public int round;
+    private float timer = 0.07f;
     [SerializeField]private int spawnCount;
+
     private void Update()
     {
         switch (currentState)
@@ -28,33 +31,66 @@ public class SurvivalHandler : MonoBehaviour
                 SpawnEnemies();
                 break;
             case roundStates.during:
+                LAHdodododoLAH();
                 break;
             case roundStates.end:
+                End();
                 break;
+            
         }
     }
     void SpawnEnemies()
+    {                
+        SpawnEnemiesRoutine();   
+        if(enemyList.Count == spawnCount)
+        {
+            currentState = roundStates.during;
+        }
+    }
+    void LAHdodododoLAH()
     {
-                 
-             StartCoroutine(SpawnEnemiesRoutine());           
-        
-        currentState = roundStates.during;
+        if(inactive == spawnCount)
+        {
+            currentState = roundStates.end;
+
+        }
+        else
+        {
+            for (int i = 0; i < enemyList.Count; i++)
+            {
+                if (enemyList[i] == null)
+                {
+                    enemyList.RemoveAt(i);
+                    inactive++;
+                }
+            }
+        }
     }
 
+    void End()
+    {
+        round++;
+        currentState = roundStates.start;
+    }
     public void GetSpawnCount(int r)
     {
         float beforeRound = (float)(0.000058 * Mathf.Pow(r , 3) + 0.074032 * (Mathf.Pow(r,2) + 0.718119) * (r + 14.738699));
         spawnCount = Mathf.RoundToInt(beforeRound);
     }
 
-    IEnumerator SpawnEnemiesRoutine()
+    void SpawnEnemiesRoutine()
     {
-        for(int i = 0; i < spawnCount; i++)
+        timer -= 1 * Time.deltaTime;
+        if(timer <= 0)
         {
-            int pointToSpawnAt = Random.Range(0, spawnPoints.Length);
-            var enemyObj = Instantiate(enemy, spawnPoints[pointToSpawnAt]);
-            enemyList.Add(enemyObj);
-            yield return new WaitForSecondsRealtime(5f);
+            for (int i = 0; i < spawnCount; i++)
+            {
+                int pointToSpawnAt = Random.Range(0, spawnPoints.Length);
+                var enemyObj = Instantiate(enemy, spawnPoints[pointToSpawnAt]);
+                enemyList.Add(enemyObj);
+            }
+            timer = 0.07f;
         }
+
     }
 }

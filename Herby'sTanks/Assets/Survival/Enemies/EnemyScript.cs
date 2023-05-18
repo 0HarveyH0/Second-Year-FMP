@@ -17,8 +17,12 @@ public class EnemyScript : MonoBehaviour
     private enemyStates currentState;
     [SerializeField]
     private int BounceCount;
+    public bool isShot;
     [SerializeField]
-    private bool isShot;
+    public Transform player;
+    [SerializeField]
+    private GameObject explosion;
+
 
 
     //AI
@@ -43,6 +47,12 @@ public class EnemyScript : MonoBehaviour
                 case enemyStates.fleeing:
                     break;
             }
+        }
+        else
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+            Debug.Log("isShot");
         }
     }
     void Patrol()

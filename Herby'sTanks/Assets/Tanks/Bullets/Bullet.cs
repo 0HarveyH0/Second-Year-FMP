@@ -47,7 +47,7 @@ public class Bullet : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.gameObject.GetComponent<EnemyAI>().isShot = true;
+            collision.gameObject.gameObject.GetComponent<EnemyScript>().isShot = true;
             Destroy(this.gameObject);
         }
         else
