@@ -144,22 +144,29 @@ public class SpawnManager : MonoBehaviour
                 deadCount++;
                 break;
         }
-        countOnDeath();
+        if(SceneManager.GetActiveScene().name == "PVP")
+        {
+            countOnDeathPvP();
+        }
+        else
+        {
+            countOnDeath();
+        }
     }
-    public void countOnDeath()
+    private void countOnDeathPvP()
     {
-        switch(HMP.PlayerCount)
+        switch (HMP.PlayerCount)
         {
             case 0:
                 break;
             case 1:
-                if(deadCount == 0)
+                if (deadCount == 0)
                 {
                     shouldFinish = true;
                 }
                 break;
             case 2:
-                if(deadCount == 1)
+                if (deadCount == 1)
                 {
                     shouldFinish = true;
                     deadCount = 0;
@@ -173,6 +180,39 @@ public class SpawnManager : MonoBehaviour
                 break;
             case 4:
                 if (deadCount == 3)
+                {
+                    shouldFinish = true;
+                }
+                break;
+        }
+    }
+    public void countOnDeath()
+    {
+        switch(HMP.PlayerCount)
+        {
+            case 0:
+                break;
+            case 1:
+                if(deadCount == 1)
+                {
+                    shouldFinish = true;
+                }
+                break;
+            case 2:
+                if(deadCount == 2)
+                {
+                    shouldFinish = true;
+                    deadCount = 0;
+                }
+                break;
+            case 3:
+                if (deadCount == 3)
+                {
+                    shouldFinish = true;
+                }
+                break;
+            case 4:
+                if (deadCount == 4)
                 {
                     shouldFinish = true;
                 }

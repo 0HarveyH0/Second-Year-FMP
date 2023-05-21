@@ -19,7 +19,7 @@ public class SurvivalHandler : MonoBehaviour
     [SerializeField] private roundStates currentState;
     [SerializeField] private int inactive;
     public int round;
-    private float timer = 0.07f;
+    private float timer = 10.07f;
     [SerializeField]private int spawnCount;
 
     private void Update()
@@ -31,7 +31,7 @@ public class SurvivalHandler : MonoBehaviour
                 SpawnEnemies();
                 break;
             case roundStates.during:
-                LAHdodododoLAH();
+                During();
                 break;
             case roundStates.end:
                 End();
@@ -40,19 +40,19 @@ public class SurvivalHandler : MonoBehaviour
         }
     }
     void SpawnEnemies()
-    {                
-        SpawnEnemiesRoutine();   
-        if(enemyList.Count == spawnCount)
+    {          
+        inactive = 0;
+        SpawnEnemiesRoutine();
+        if (enemyList.Count == spawnCount)
         {
             currentState = roundStates.during;
         }
     }
-    void LAHdodododoLAH()
+    void During()
     {
         if(inactive == spawnCount)
         {
             currentState = roundStates.end;
-
         }
         else
         {
@@ -79,18 +79,17 @@ public class SurvivalHandler : MonoBehaviour
     }
 
     void SpawnEnemiesRoutine()
-    {
-        timer -= 1 * Time.deltaTime;
-        if(timer <= 0)
+    {      
+        for (int i = 0; i < spawnCount; i++)
         {
-            for (int i = 0; i < spawnCount; i++)
+            timer -= 1 * Time.deltaTime;
+            if (timer <= 0)
             {
                 int pointToSpawnAt = Random.Range(0, spawnPoints.Length);
                 var enemyObj = Instantiate(enemy, spawnPoints[pointToSpawnAt]);
                 enemyList.Add(enemyObj);
+                timer = 5f;
             }
-            timer = 0.07f;
-        }
-
+        }       
     }
 }
