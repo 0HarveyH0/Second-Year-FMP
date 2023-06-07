@@ -73,6 +73,12 @@ public class SpawnManager : MonoBehaviour
             JoinPlayers();
         }
 
+        if (shouldFinish && SceneManager.GetActiveScene().name == "Campaign")
+        {
+            var levelInit = GameObject.Find("LevelManager").GetComponent<LevelInitilizer>();
+            levelInit.gameOver = true;
+        }
+
     }
 
     public void JoinPlayers()
@@ -148,7 +154,7 @@ public class SpawnManager : MonoBehaviour
         {
             countOnDeathPvP();
         }
-        else
+        else if(SceneManager.GetActiveScene().name == "Campaign")
         {
             countOnDeath();
         }
@@ -158,6 +164,7 @@ public class SpawnManager : MonoBehaviour
         switch (HMP.PlayerCount)
         {
             case 0:
+                Debug.Log(deadCount);
                 break;
             case 1:
                 if (deadCount == 0)

@@ -66,7 +66,6 @@ public class SurvivalHandler : MonoBehaviour
             }
         }
     }
-
     void End()
     {
         round++;

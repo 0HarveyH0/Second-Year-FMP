@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public ParticleSystem bulletParticleSystem;
     public Rigidbody rb;
     public int BounceCount;
     int bounces;
     public int speed = 15;
+    [SerializeField] private AudioSource bulletSFX;
 
     private void Start()
     {
@@ -20,7 +20,9 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bounceable"))
         {
-            if(bounces < BounceCount)
+            Debug.Log("audioplay");
+            bulletSFX.Play();
+            if (bounces < BounceCount)
             {
                 Vector3 newDir = Vector3.Reflect(transform.forward, collision.contacts[0].normal);
 
@@ -47,7 +49,8 @@ public class Bullet : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.gameObject.GetComponent<EnemyScript>().isShot = true;
+            //collision.gameObject.gameObject.GetComponent<EnemyScript>().isShot = true;
+            collision.gameObject.gameObject.GetComponent<EnemyAI>().isShot = true;
             Destroy(this.gameObject);
         }
         else

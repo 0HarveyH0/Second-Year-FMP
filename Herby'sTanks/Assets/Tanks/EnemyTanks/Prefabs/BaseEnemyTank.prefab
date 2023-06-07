@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1409482891753755144}
+  fireRate: 0
   BounceCount: 2
   player: {fileID: 0}
   bullet: {fileID: 1185741101620450717, guid: 9b3c0b062c06bb844a1563b505a59b8a, type: 3}

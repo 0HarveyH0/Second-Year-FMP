@@ -35,6 +35,7 @@ public class TankScript : MonoBehaviour
     public Transform crosshair;
     public Transform tankHead;
     public Vector3 screenPos;
+    [SerializeField] private AudioSource fireSFX;
     [SerializeField] private GameObject bullet;
     public Vector3 crosshairPos;
     public Transform bulletHole;
@@ -115,6 +116,7 @@ public class TankScript : MonoBehaviour
     IEnumerator FireRate()
     {
         Debug.Log("hasShot");
+        fireSFX.Play();
         var bulletObj = Instantiate(bullet, bulletHole.position, bulletHole.rotation); bulletCount++;
         bulletObj.transform.parent = TankParent.transform;
         canShoot = false;
