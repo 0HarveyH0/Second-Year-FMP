@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe55330132362514cb7468470e6bbc2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TankParent: {fileID: 0}
+  TankParent: {fileID: 5990235801957960232}
   spawnManager: {fileID: 0}
   playerDetails: {fileID: 0}
   controlScheme: 
